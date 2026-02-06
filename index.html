@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Testing Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Page 1: Amount Input -->
+        <div id="page1" class="page active">
+            <div class="card">
+                <h1>Payment Test</h1>
+                <p class="subtitle">Step 1 of 3</p>
+                
+                <div class="form-group">
+                    <label for="amount">Enter Amount</label>
+                    <input 
+                        type="number" 
+                        id="amount" 
+                        placeholder="0.00" 
+                        min="0" 
+                        step="0.01"
+                        required
+                    >
+                </div>
+                
+                <button id="nextToPage2" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+
+        <!-- Page 2: Payment Method Select -->
+        <div id="page2" class="page">
+            <div class="card">
+                <h1>Payment Method</h1>
+                <p class="subtitle">Step 2 of 3</p>
+                
+                <div class="form-group">
+                    <label class="radio-option">
+                        <input type="radio" name="paymentMethod" value="bkash" checked>
+                        <span class="radio-label">
+                            <span class="method-name">bKash</span>
+                        </span>
+                    </label>
+                    
+                    <label class="radio-option">
+                        <input type="radio" name="paymentMethod" value="nagad">
+                        <span class="radio-label">
+                            <span class="method-name">Nagad</span>
+                        </span>
+                    </label>
+                </div>
+                
+                <div class="button-group">
+                    <button id="backToPage1" class="btn btn-secondary">Back</button>
+                    <button id="nextToPage3" class="btn btn-primary">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3: Transaction ID Input & Verification -->
+        <div id="page3" class="page">
+            <div class="card">
+                <h1>Verify Payment</h1>
+                <p class="subtitle">Step 3 of 3</p>
+                
+                <div class="summary">
+                    <div class="summary-item">
+                        <span class="label">Amount:</span>
+                        <span id="summaryAmount" class="value">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Method:</span>
+                        <span id="summaryMethod" class="value">-</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="transactionId">Enter Transaction ID</label>
+                    <input 
+                        type="text" 
+                        id="transactionId" 
+                        placeholder="TXN123456789" 
+                        required
+                    >
+                </div>
+                
+                <div id="resultMessage" class="message"></div>
+                
+                <div class="button-group">
+                    <button id="backToPage2" class="btn btn-secondary">Back</button>
+                    <button id="verifyPayment" class="btn btn-primary">
+                        <span id="verifyText">Verify Payment</span>
+                        <span id="verifyLoader" class="loader"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
